@@ -2,3 +2,376 @@
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+@import "~@mdi/font/scss/materialdesignicons";
+@import './assets/scss/mixins';
+
+
+html {
+	// overflow-x: hidden;
+}
+body {
+	font-family: $font-primary;
+	background: $white;
+	font-size: 16px;
+	line-height: 1.8;
+	font-weight: 400;
+	color: lighten($black,60%);
+	&.menu-show {
+		overflow: hidden;
+		position: fixed;
+		height: 100%;
+		width: 100%;
+	}
+}
+a {
+	transition: .3s all ease;
+	color: $primary;
+	&:hover, &:focus {
+		text-decoration: none;
+		color: $primary;
+		outline: none !important;
+	}
+}
+h1, h2, h3, h4, h5,
+.h1, .h2, .h3, .h4, .h5 {
+	line-height: 1.5;
+	color: rgba(0,0,0,.8);
+	font-weight: 400;
+	font-family: $font-primary;
+}
+
+.text-primary {
+	color: $primary!important;
+}
+
+.ftco-section {
+	padding: 7em 0;
+	position: relative;
+	width: 100%;
+	@include media-breakpoint-down(sm){
+		padding: 6em 0;
+	}
+}
+
+.ftco-no-pt{
+	padding-top: 0 !important;
+}
+.ftco-no-pb{
+	padding-bottom: 0 !important;
+}
+
+.ftco-bg-dark {
+	background: #3c312e;
+}
+
+.ftco-top-section-pt-10 {
+    padding-top: 6rem !important;
+
+    @include media-breakpoint-down(md) {
+        padding-top: 0.625rem !important;
+    }
+}
+
+//BUTTON
+.btn {
+	cursor: pointer;
+	@include border-radius(4px);
+	-webkit-box-shadow: 0px 24px 36px -11px rgba(0,0,0,0.09);
+	-moz-box-shadow: 0px 24px 36px -11px rgba(0,0,0,0.09);
+	box-shadow: 0px 24px 36px -11px rgba(0,0,0,0.09);
+	&:hover, &:active, &:focus {
+		outline: none;
+	}
+	&.btn-primary {
+		background: $primary !important;
+		border: 1px solid $primary !important;
+		color: $white !important;
+		&:hover {
+			border: 1px solid $primary;
+			background: transparent;
+			color :$primary;
+		}
+		&.btn-outline-primary {
+			border: 1px solid $primary;
+			background: transparent;
+			color :$primary;
+			&:hover {
+				border: 1px solid transparent;
+				background: $primary;
+				color :$white;
+			}
+		}
+	}
+	&.btn-secondary {
+		background: $secondary !important;
+		border: 1px solid $secondary !important;
+		color: $white !important;
+		&:hover {
+			border: 1px solid $secondary;
+			background: transparent;
+			color :$secondary;
+		}
+		&.btn-outline-secondary {
+			border: 1px solid $secondary;
+			background: transparent;
+			color :$secondary;
+			&:hover {
+				border: 1px solid transparent;
+				background: $secondary;
+				color :$white;
+			}
+		}
+	}
+	&.btn-white {
+		background: $white !important;
+		border: 1px solid $white !important;
+		color: $black !important;
+		&:hover {
+			border: 1px solid $white;
+			background: transparent;
+			color :$white;
+		}
+		&.btn-outline-white {
+			border: 1px solid $white;
+			background: transparent;
+			color :$white;
+			&:hover {
+				border: 1px solid transparent;
+				background: $white;
+				color :$white;
+			}
+		}
+	}
+}
+
+//blocks
+.block-20 {
+	overflow: hidden;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: top center;
+	height: 250px;
+	width: 100%;
+	position: relative;
+	display: block;
+}
+.blog-entry{
+	width: 100%;
+	margin-bottom: 40px;
+	@include media-breakpoint-down(sm){
+		margin-bottom: 30px;
+	}
+	.text {
+		position: relative;
+		border-top: 0;
+		border-radius: 2px;
+		width: 100%;
+		background: $white;
+		padding: 20px 30px;
+		.tag{
+			color: lighten($black,70%);
+		}
+		.heading {
+			font-size: 22px;
+			margin-bottom: 16px;
+			a {
+				color: $black;
+				&:hover, &:focus, &:active {
+					color: $primary;
+				}
+			}
+		}
+	}
+	.meta {
+		p {
+			display: inline-block;
+			margin-right: 5px;
+			margin-bottom: 5px;
+			font-size: 12px;
+			text-transform: uppercase;
+			font-weight: 500;
+			a {
+				color: $primary;
+				font-size: 12px;
+				&:hover {
+					color: lighten($black, 0%);
+				}
+			}
+		}
+	}
+}
+
+
+.block-23 {
+	ul {
+		padding: 0;
+		li {
+
+			&, > a {
+				display: table;
+				line-height: 1.5;
+				margin-bottom: 15px;
+			}
+			span{
+				color: rgba(255,255,255, .7);
+				color: $secondary;
+			}
+			.icon, .text {
+				display: table-cell;
+				vertical-align: top;
+				color: rgba(255,255,255,.8) !important;
+			}
+			.icon {
+				width: 40px;
+				font-size: 18px;
+				padding-top: 2px;
+				color: $quarternary !important;
+			}
+
+		}
+	}
+}
+
+.block-27 {
+	ul {
+		padding: 0;
+		margin: 0;
+		li {
+			display: inline-block;
+			margin-bottom: 4px;
+			font-weight: 400;
+			a,span {
+				color: $black;
+				text-align: center;
+				display: inline-block;
+				width: 40px;
+				height: 40px;
+				line-height: 40px;
+				border-radius: 50%;
+				border: 1px solid lighten($black,90%);
+			}
+			&.active, &:hover {
+				a, span {
+					background: $primary;
+					@include gradient-background();
+					color: $white;
+					border: 1px solid transparent;
+				}
+			}
+		}
+	}
+}
+
+.wrapper{
+	width: 100%;
+	-webkit-box-shadow: 0px 2px 25px -13px rgba(0,0,0,0.26);
+	-moz-box-shadow: 0px 2px 25px -13px rgba(0,0,0,0.26);
+	box-shadow: 0px 2px 25px -13px rgba(0,0,0,0.26);
+}
+.contact-wrap{
+	background: $white;
+}
+
+.info-wrap{
+	color: rgba(255,255,255,.8);
+	h3{
+		color: $white;
+	}
+	.dbox{
+		width: 100%;
+		color: rgba(255,255,255,.8);
+		margin-bottom: 25px;
+		&:last-child(){
+			margin-bottom: 0;
+		}
+		p{
+			margin-bottom: 0;
+			span{
+				font-weight: 500;
+				color: $white;
+			}
+			a{
+				color: $white;
+			}
+		}
+		.icon{
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			border: 2px solid rgba(255,255,255,.2);
+			span{
+				font-size: 20px;
+				color: $white;
+			}
+		}
+		.text{
+			width: calc(100% - 50px);
+		}
+	}
+}
+
+.contactForm{
+	.label{
+		color: $primary;
+		text-transform: uppercase;
+		font-size: 12px;
+		font-weight: 600;
+	}
+	.form-control{
+		border: none;
+		border-bottom: 1px solid rgba(0,0,0,.1);
+		padding: 0;
+	}
+}
+
+
+
+//### .block-21
+.block-21 {
+	.blog-img{
+		display: block;
+		height: 80px;
+		width: 80px;
+	}
+	.text {
+		width: calc(100% - 90px);
+		.heading {
+			font-size: 18px;
+			font-weight: 500;
+			a {
+				color: $black;
+				&:hover, &:active, &:focus {
+					color: $primary;
+				}
+			}
+		}
+		.meta {
+			> div {
+				display: inline-block;
+				font-size: 12px;
+				margin-right: 5px;
+				a {
+					color: lighten($black, 50%);
+				}
+			}
+		}
+	}
+}
+
+/* Blog*/
+.post-info {
+	font-size: 12px;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: $white;
+	letter-spacing: .1em;
+	> div {
+		display: inline-block;
+
+		.seperator {
+			display: inline-block;
+			margin: 0 10px;
+			opacity: .5;
+		}
+	}
+}

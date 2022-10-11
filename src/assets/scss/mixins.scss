@@ -1,0 +1,62 @@
+$font-primary: 'Poppins',Arial, sans-serif;
+
+$white: #fff;
+$black: #000000;
+$darken: #33313b;
+
+$primary: #4986fc;
+$primaryActive: #6dc6ff;
+$secondary: #e449ad;
+$tertiary: #fc9927;
+$quarternary: #24d2c8;
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin transition($transition) {
+  -moz-transition: all $transition ease;
+  -o-transition: all $transition ease;
+  -webkit-transition: all $transition ease;
+  -ms-transition: all $transition ease;
+  transition: all $transition ease;
+}
+
+@mixin gradient-background() {
+  background: rgba(206, 75, 232, 1);
+  background: -moz-linear-gradient(
+    -45deg,
+    rgba(206, 75, 232, 1) 0%,
+    rgba(32, 124, 229, 1) 100%
+  );
+  background: -webkit-gradient(
+    left top,
+    right bottom,
+    color-stop(0%, rgba(206, 75, 232, 1)),
+    color-stop(100%, rgba(32, 124, 229, 1))
+  );
+  background: -webkit-linear-gradient(
+    -45deg,
+    rgba(206, 75, 232, 1) 0%,
+    rgba(32, 124, 229, 1) 100%
+  );
+  background: -o-linear-gradient(
+    -45deg,
+    rgba(206, 75, 232, 1) 0%,
+    rgba(32, 124, 229, 1) 100%
+  );
+  background: -ms-linear-gradient(
+    -45deg,
+    rgba(206, 75, 232, 1) 0%,
+    rgba(32, 124, 229, 1) 100%
+  );
+  background: linear-gradient(
+    135deg,
+    rgba(206, 75, 232, 1) 0%,
+    rgba(32, 124, 229, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ce4be8', endColorstr='#207ce5', GradientType=1 );
+}

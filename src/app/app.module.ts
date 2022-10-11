@@ -1,19 +1,21 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutes } from './app.routes';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { DefaultComponent } from './layout/default/default.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DefaultComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    AppRoutes,
     NgbModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
