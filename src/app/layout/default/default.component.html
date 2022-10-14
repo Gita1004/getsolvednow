@@ -3,7 +3,9 @@
   id="ftco-navbar"
 >
   <div class="container">
-    <a class="navbar-brand" routerLink="/">Get<span>Solved</span>Now <i class="mdi mdi-lightbulb-on-10"></i> </a>
+    <a class="navbar-brand" routerLink="/"
+      >Get<span>Solved</span>Now <i class="mdi mdi-lightbulb-on-10"></i>
+    </a>
     <button
       class="navbar-toggler"
       type="button"
@@ -17,10 +19,43 @@
       <span class="oi oi-menu"></span> Menu
     </button>
 
-    <div class="collapse navbar-collapse" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" id="ftco-nav">
+    <div
+      class="collapse navbar-collapse justify-content-end"
+      #collapse="ngbCollapse"
+      [(ngbCollapse)]="isCollapsed"
+      id="ftco-nav"
+    >
       <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <div class="nav-link">
+            <div class="input-group">
+              <span class="input-group-text" id="search-addon">
+                <i class="mdi mdi-magnify"></i>
+              </span>
+              <input
+                id="searcher"
+                placeholder="Search..."
+                type="text"
+                class="form-control form-floating"
+                aria-label="Search"
+                aria-describedby="search-addon"
+                list="searchResults"
+                [(ngModel)]="currentItem"
+                (input) = "onChange($event)"
+                (keyup)="onSearch($event,currentItem)"
+                (change)="onSearch($event,currentItem)"
+              />
+              <datalist id="searchResults">
+                <option *ngFor="let item of searchResults" >
+                    {{item.question}}
+                </option>
+              </datalist>
+              <input type="hidden" name="answer" id="searcher-hidden">
+            </div>
+          </div>
+        </li>
         <li class="nav-item" routerLinkActive="active">
-          <a routerLink="/about" class="nav-link active">
+          <a routerLink="/about" class="nav-link">
             <span class="d-flex py-1">About</span>
           </a>
         </li>
@@ -35,7 +70,11 @@
           </a>
         </li>
         <li class="nav-item" routerLinkActive="active">
-          <a routerLink="/login" [queryParams]="{register: true}" class="nav-link px-md-3">
+          <a
+            routerLink="/login"
+            [queryParams]="{ register: true }"
+            class="nav-link px-md-3"
+          >
             <span class="btn btn-secondary">Sign Up</span>
           </a>
         </li>

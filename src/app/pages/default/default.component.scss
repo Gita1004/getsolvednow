@@ -1,0 +1,77 @@
+body {
+    --top-bar-allocated-space: 50px;
+    --su-base: 1;
+    --su-static1: 1px;
+    --su-static2: 2px;
+    --su-static4: 4px;
+    --su-static6: 6px;
+    --su-static8: 8px;
+    --su-static12: 12px;
+    --su-static16: 16px;
+    --su-static24: 24px;
+    --su-static32: 32px;
+    --su-static48: 48px;
+    --su-static64: 64px;
+    --su-static96: 96px;
+    --su-static128: 128px;
+    --su1: clamp(var(--su-static1), calc(var(--su-static1) * var(--su-base)), calc(var(--su-static1) * var(--su-base)));
+    --su2: calc(var(--su-static2) * var(--su-base));
+    --su4: calc(var(--su-static4) * var(--su-base));
+    --su6: calc(var(--su-static6) * var(--su-base));
+    --su8: calc(var(--su-static8) * var(--su-base));
+    --su12: calc(var(--su-static12) * var(--su-base));
+    --su16: calc(var(--su-static16) * var(--su-base));
+    --su24: calc(var(--su-static24) * var(--su-base));
+    --su32: calc(var(--su-static32) * var(--su-base));
+    --su48: calc(var(--su-static48) * var(--su-base));
+    --su64: calc(var(--su-static64) * var(--su-base));
+    --su96: calc(var(--su-static96) * var(--su-base));
+    --su128: calc(var(--su-static128) * var(--su-base));
+}
+.left-sidebar {
+    width: 164px;
+    flex-shrink: 0;
+    z-index: var(--zi-dropdown);
+    box-shadow: 0 0 0 hsl(210deg 8% 5% / 5%);
+    transition: box-shadow ease-in-out .1s,transform ease-in-out .1s;
+    transform: translateZ(0);
+}
+@supports (position: sticky) or (position: -webkit-sticky) {
+    .left-sidebar--sticky-container:not(.left-sidebar__fake-sticky) {
+        position:-webkit-sticky;
+        position: sticky;
+        width: auto;
+        top: 0;
+        margin-bottom: var(--su8);
+        max-height: 100vh;
+        overflow-y: auto;
+        scrollbar-color: var(--scrollbar) transparent;
+        top: var(--top-bar-allocated-space);
+        max-height: calc(100vh - var(--top-bar-allocated-space))
+    }
+
+    .left-sidebar--sticky-container:not(.left-sidebar__fake-sticky)::-webkit-scrollbar {
+        width: calc(var(--su-static12) - var(--su-static2));
+        height: calc(var(--su-static12) - var(--su-static2));
+        background-color: transparent
+    }
+
+    .left-sidebar--sticky-container:not(.left-sidebar__fake-sticky)::-webkit-scrollbar-track {
+        border-radius: calc(var(--su-static12) - var(--su-static2));
+        background-color: transparent
+    }
+
+    .left-sidebar--sticky-container:not(.left-sidebar__fake-sticky)::-webkit-scrollbar-thumb {
+        border-radius: calc(var(--su-static12) - var(--su-static2));
+        background-color: var(--scrollbar)
+    }
+
+    .left-sidebar--sticky-container:not(.left-sidebar__fake-sticky)::-webkit-scrollbar-corner {
+        background-color: transparent;
+        border-color: transparent
+    }
+
+    html.html__unpinned-leftnav .left-sidebar--sticky-container:not(.left-sidebar__fake-sticky) {
+        max-height: calc(100vh - 50px)
+    }
+}

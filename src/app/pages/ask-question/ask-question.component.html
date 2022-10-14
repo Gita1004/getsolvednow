@@ -1,0 +1,48 @@
+<section class="ftco-section ftco-no-pb ftco-no-pt">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h3>Ask a question</h3>
+      </div>
+    </div>
+    <div class="row pb-5">
+      <div class="col-12 col-md-8">
+        <div class="card">
+          <div class="card-body">
+            <div class="">
+              <h5>Title</h5>
+              <h6>
+                Be specific and imagine you’re asking a question to person who
+                is unaware about context
+              </h6>
+              <div class="mb-3">
+                <form [formGroup]="richTextForm">
+                  <div class="form-group mb-3">
+                    <label for="Title">Title</label>
+                    <input
+                      formControlName="title"
+                      placeholder="e.g. Git: How do I undo the most recent local commits in Git?"
+                      class="form-control"
+                      id="Title"
+                      aria-describedby="Title"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label>Description</label>
+                    <div class="col-12">
+                      <rich-text-editor
+                        [control]="descriptionRichControl"
+                      ></rich-text-editor>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            This is some text within a card body.
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">instructions</div>
+    </div>
+  </div>
+</section>
