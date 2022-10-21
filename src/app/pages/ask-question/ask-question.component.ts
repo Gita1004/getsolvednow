@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MainserviceService } from 'src/app/mainservice.service';
 
 
 @Component({
@@ -16,11 +17,17 @@ export class AskQuestionComponent {
     ]
   });
 
-  constructor(private _fb: FormBuilder) {
+  constructor(private _fb: FormBuilder,private service:MainserviceService) {
   }
 
   get descriptionRichControl() {
     return this.richTextForm.get('description') as FormControl;
+  }
+
+  submitAskQuestion(data:any){
+    this.service.submitquestion(data).subscribe((res:any)=>{
+      console.log(res)
+    })
   }
 
 }

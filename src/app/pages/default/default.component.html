@@ -58,9 +58,9 @@
             </div>
           </div>
           <hr>
-          <div>
-            <h4>Question Title</h4>
-            <div>Question Description</div>
+          <div *ngFor="let questiondetail of questiondata">
+            <h4>{{questiondetail.title}}</h4>
+            <div [innerHTML]="sanitizedValue">{{questiondetail.description}}</div>
           </div>
       </div>
     </div>
